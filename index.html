@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus - Mainframe Hubs</title>
+    <title>Nexus - Mainframe Core</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap">
@@ -55,9 +55,10 @@
             <span class="font-orbitron font-black tracking-widest text-xl text-white">NEXUS</span>
         </div>
         
-        <div class="flex space-x-4 font-orbitron text-sm">
-            <button onclick="openPortal('login')" class="px-4 py-2 text-gray-400 hover:text-white transition-all">LOG IN</button>
-            <button onclick="openPortal('signup')" class="px-5 py-2 bg-gradient-to-r from-cyberBlue to-cyberPurple rounded font-bold shadow-glowYellow text-white">JOIN NEXUS</button>
+        <div class="flex items-center bg-black/40 border border-cyberBlue/30 rounded-full px-4 py-1.5 font-orbitron text-xs text-cyberBlue gap-2 shadow-glowBlue">
+            <i class="fas fa-coins text-yellow-400"></i>
+            <span>NEXUS TOKENS:</span>
+            <span id="global-tokens" class="font-bold text-white">0</span>
         </div>
     </header>
 
@@ -75,25 +76,6 @@
                     <span>ENTER STUDY HUB</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </button>
-                
-                <div class="space-y-4">
-                    <h3 class="text-xs font-orbitron text-gray-400 tracking-wider flex items-center">
-                        <span class="w-2 h-2 bg-cyberBlue rounded-full mr-2 animate-pulse"></span> TRENDING IN STUDY HUB
-                    </h3>
-                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800">
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-cyberBlue/10 rounded-lg text-cyberBlue"><i class="fas fa-brain text-xl"></i></div>
-                            <div class="flex-1">
-                                <span class="text-[10px] font-orbitron text-cyberBlue uppercase tracking-wider">AI & ML</span>
-                                <h4 class="text-white font-semibold">Neural Networks Explained Simply</h4>
-                                <div class="flex space-x-4 text-xs text-gray-500 mt-2">
-                                    <span><i class="far fa-user text-cyberBlue/70 mr-1"></i> ByteBard</span>
-                                    <span><i class="far fa-eye mr-1"></i> 1.2K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="space-y-8 lg:pl-6">
@@ -106,21 +88,116 @@
                     <span>ENTER FANDOM HUB</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </button>
-                
-                <div class="space-y-4">
-                    <h3 class="text-xs font-orbitron text-gray-400 tracking-wider flex items-center">
-                        <span class="w-2 h-2 bg-cyberPink rounded-full mr-2 animate-pulse"></span> TRENDING IN FANDOM HUB
-                    </h3>
-                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800">
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-cyberPink/10 rounded-lg text-cyberPink"><i class="fas fa-crosshairs text-xl"></i></div>
-                            <div class="flex-1">
-                                <span class="text-[10px] font-orbitron text-cyberPink uppercase tracking-wider">Anime</span>
-                                <h4 class="text-white font-semibold">Demon Slayer Season 4 Hype!</h4>
-                                <div class="flex space-x-4 text-xs text-gray-500 mt-2">
-                                    <span><i class="far fa-user text-cyberPink/70 mr-1"></i> ShadowFlame</span>
-                                    <span><i class="far fa-eye mr-1"></i> 2.3K</span>
-                                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-study" class="max-w-6xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberBlue hover:underline flex items-center gap-2">
+            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
+        </button>
+        
+        <div class="border-b border-gray-800 pb-4 mb-8">
+            <h1 class="text-3xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
+            <p class="text-sm text-gray-400">Mine tokens by solving quizzes, logging focus cycles, and submitting code notes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="space-y-6">
+                <div class="bg-cardBg/80 border border-cyberBlue/30 p-6 rounded-2xl text-center shadow-lg">
+                    <h3 class="font-orbitron text-xs text-cyberBlue tracking-widest mb-2">FOCUS TIME CYCLER</h3>
+                    
+                    <div class="flex justify-center items-center gap-4 my-2 text-gray-400 font-orbitron text-sm">
+                        <button onclick="adjustTimer(-300)" class="w-8 h-8 rounded bg-black/40 border border-white/10 hover:border-cyberBlue text-white font-bold flex items-center justify-center">-5m</button>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500">Fluctuate</span>
+                        <button onclick="adjustTimer(300)" class="w-8 h-8 rounded bg-black/40 border border-white/10 hover:border-cyberBlue text-white font-bold flex items-center justify-center">+5m</button>
+                    </div>
+
+                    <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-4 tracking-wider">25:00</div>
+                    <p class="text-[10px] text-gray-500 font-mono mb-4">REWARD: +50 NEXUS TOKENS</p>
+                    <div class="flex justify-center gap-4">
+                        <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START CYCLE</button>
+                        <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded hover:text-white">RESET</button>
+                    </div>
+                </div>
+
+                <div class="bg-cardBg/80 border border-purple-500/30 p-6 rounded-2xl shadow-lg relative">
+                    <h3 class="font-orbitron text-xs text-purple-400 tracking-widest mb-3"><i class="fas fa-brain text-yellow-400"></i> CYBER QUIZ CORE</h3>
+                    <div id="quiz-box">
+                        <p id="quiz-question" class="text-sm text-white mb-4 font-medium">Loading network data matrices...</p>
+                        <div id="quiz-options" class="space-y-2">
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY NOTES (+10 TOKENS PER NOTE)</h3>
+                    <div id="study-notes-container" class="space-y-3 font-mono text-xs text-gray-300 max-h-[340px] overflow-y-auto pr-2">
+                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[CyberWizard44]</span> Finished drafting basic setup arrays.</div>
+                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[ByteBard]</span> Left custom CSS configurations in repository deck.</div>
+                    </div>
+                </div>
+                <div class="mt-6 flex gap-2">
+                    <input id="note-input" type="text" placeholder="Type a note onto the grid layout..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2.5 text-sm text-white focus:border-cyberBlue outline-none">
+                    <button onclick="addNewNote()" class="px-5 py-2.5 bg-gradient-to-r from-cyberBlue to-cyberPurple text-white font-orbitron font-bold text-xs rounded shadow-glowBlue">POST</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-fandom" class="max-w-6xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberPink hover:underline flex items-center gap-2">
+            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
+        </button>
+        
+        <div class="border-b border-gray-800 pb-4 mb-8">
+            <h1 class="text-3xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
+            <p class="text-sm text-gray-400">Interact with network items to build global community rank points.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-cardBg/80 border border-cyberPink/30 p-6 rounded-2xl shadow-lg h-fit">
+                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4"><i class="fas fa-trophy mr-1 text-yellow-400"></i> NETWORK LEADERBOARD</h3>
+                <div class="space-y-3 font-orbitron text-xs">
+                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded border border-white/5">
+                        <span class="text-yellow-400 font-bold">1. ShadowFlame</span>
+                        <span class="text-gray-400 font-mono">2,450 NXS</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded border border-white/5">
+                        <span class="text-gray-300 font-bold">2. ByteBard</span>
+                        <span class="text-gray-400 font-mono">1,890 NXS</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gradient-to-r from-cyberPurple/40 to-cyberPink/40 p-2.5 rounded border border-cyberPink/50 shadow-glowPink">
+                        <span class="text-white font-black animate-pulse">3. Scarlet.Owner (You)</span>
+                        <span id="leaderboard-user-tokens" class="text-cyberPink font-mono font-bold">0 NXS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-cardBg/50 border border-gray-800 p-6 rounded-2xl">
+                    <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
+                    <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
+                    
+                    <div class="space-y-4 text-xs font-orbitron">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
+                                <span id="vote-anime-pct">42%</span>
+                            </div>
+                            <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                                <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
+                                <span id="vote-gaming-pct">58%</span>
+                            </div>
+                            <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                                <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
                             </div>
                         </div>
                     </div>
@@ -129,152 +206,32 @@
         </div>
     </main>
 
-    <main id="page-study" class="max-w-5xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
-        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberBlue hover:underline flex items-center gap-2">
-            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
-        </button>
-        
-        <div class="border-b border-gray-800 pb-4 mb-8">
-            <h1 class="text-3xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
-            <p class="text-sm text-gray-400">Lock in, stream notes, and track your core learning cycles.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-cardBg/80 border border-cyberBlue/30 p-6 rounded-2xl text-center shadow-lg">
-                <h3 class="font-orbitron text-xs text-cyberBlue tracking-widest mb-4">FOCUS TIME CYCLER</h3>
-                <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-4 tracking-wider">25:00</div>
-                <div class="flex justify-center gap-4 mt-4">
-                    <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START CYCLE</button>
-                    <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded hover:text-white">RESET</button>
-                </div>
-            </div>
-
-            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY LOGS</h3>
-                    <div class="space-y-3 font-mono text-xs text-gray-400 max-h-32 overflow-y-auto pr-2">
-                        <p class="border-b border-gray-800 pb-1"><span class="text-cyberBlue">[09:20]</span> CyberWizard44: Finished drafting basic setup arrays.</p>
-                        <p class="border-b border-gray-800 pb-1"><span class="text-cyberBlue">[11:45]</span> ByteBard: Left custom CSS configurations in repository deck.</p>
-                    </div>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <input type="text" placeholder="Broadcast a learning update..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-cyberBlue outline-none">
-                    <button onclick="alert('Log injected into local database!')" class="px-4 py-2 bg-gray-800 text-white font-orbitron text-xs rounded hover:bg-gray-700">SEND</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <main id="page-fandom" class="max-w-5xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
-        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberPink hover:underline flex items-center gap-2">
-            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
-        </button>
-        
-        <div class="border-b border-gray-800 pb-4 mb-8">
-            <h1 class="text-3xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
-            <p class="text-sm text-gray-400">Sync with trending entertainment blocks, votes, and community lobbies.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-cardBg/80 border border-cyberPink/30 p-6 rounded-2xl shadow-lg">
-                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
-                <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
-                
-                <div class="space-y-4 text-xs font-orbitron">
-                    <div>
-                        <div class="flex justify-between mb-1 text-gray-400">
-                            <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
-                            <span id="vote-anime-pct">42%</span>
-                        </div>
-                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
-                            <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-1 text-gray-400">
-                            <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
-                            <span id="vote-gaming-pct">58%</span>
-                        </div>
-                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
-                            <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <h3 class="font-orbitron text-xs text-cyberPink tracking-wider mb-3">GLOBAL VIBE FEED</h3>
-                    <div class="space-y-3 text-xs max-h-32 overflow-y-auto pr-2">
-                        <p><span class="font-bold text-cyberPink">VibraniumPhx:</span> That Demon Slayer drop sequence was completely wild.</p>
-                        <p><span class="font-bold text-purple-400">ShadowFlame:</span> Agreed, studio animation budgets are legendary this year.</p>
-                    </div>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <input type="text" placeholder="Type into lobby feed..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-cyberPink outline-none">
-                    <button onclick="alert('Message echoed to the network!')" class="px-4 py-2 bg-gradient-to-r from-cyberPurple to-cyberPink text-white font-orbitron text-xs rounded">VIBE</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="auth-portal" class="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-black/70 hidden p-4">
-        <div class="bg-[#0f1624]/95 border border-cyberBlue/30 p-8 rounded-2xl w-full max-w-[400px] shadow-2xl relative">
-            
-            <button onclick="closePortal()" class="absolute top-4 right-4 text-gray-400 hover:text-cyberPink transition-colors text-2xl font-bold">&times;</button>
-            
-            <div class="text-center mb-6">
-                <h2 class="font-orbitron font-black text-2xl tracking-wider bg-gradient-to-r from-cyberBlue to-cyberPurple bg-clip-text text-transparent">NEXUS GATEWAY</h2>
-            </div>
-
-            <div class="flex bg-white/5 p-1 rounded-lg mb-6 border border-white/5">
-                <button id="tab-login" class="flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberBlue to-cyberPurple shadow-md" onclick="switchForm('login')">LOG IN</button>
-                <button id="tab-signup" class="flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white" onclick="switchForm('signup')">JOIN</button>
-            </div>
-
-            <form id="form-login" onsubmit="submitGateway(event, 'Welcome back to the grid!')" class="block">
-                <div class="mb-6">
-                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">YOUR USERNAME</label>
-                    <input type="text" required placeholder="Enter handle" class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberBlue text-sm">
-                </div>
-                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyberBlue to-cyberPurple rounded-lg text-white font-bold font-orbitron tracking-wide shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">INITIALIZE LOGIN</button>
-            </form>
-
-            <form id="form-signup" onsubmit="submitGateway(event, 'Account synchronized into the mainframe!')" class="hidden">
-                <div class="mb-4">
-                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">CHOOSE USERNAME</label>
-                    <input type="text" placeholder="e.g., CyberNinja" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberPurple text-sm">
-                </div>
-                <div class="mb-6">
-                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">SELECT YOUR HUB</label>
-                    <select class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-gray-400 outline-none focus:border-cyberPurple text-sm">
-                        <option>Study Hub Only</option>
-                        <option>Fandom Hub Only</option>
-                        <option>Access Both Decks (Full Nexus)</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyberPurple to-cyberPink rounded-lg text-white font-bold font-orbitron tracking-wide shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">REGISTER PROFILE</button>
-            </form>
-        </div>
-    </div>
-
     <footer class="border-t border-gray-800 bg-darkBg/50 py-6 font-orbitron text-xs text-center space-y-4 z-10">
-        <div class="text-cyberPurple tracking-widest font-bold uppercase">100% Secure Anonymity System</div>
-        <div class="flex flex-wrap justify-center gap-6 items-center px-4">
-            <div class="flex flex-col items-center space-y-1">
-                <div class="w-9 h-9 rounded-full border border-cyberBlue p-0.5 shadow-glowBlue flex items-center justify-center"><i class="fas fa-user-ninja text-cyberBlue"></i></div>
-                <span class="text-[10px] text-gray-500 font-mono">CyberWizard44</span>
-            </div>
-            <div class="flex flex-col items-center space-y-1">
-                <div class="w-9 h-9 rounded-full border border-cyberPink p-0.5 shadow-glowPink flex items-center justify-center"><i class="fas fa-user-astronaut text-cyberPink"></i></div>
-                <span class="text-[10px] text-gray-500 font-mono">VibraniumPhx</span>
-            </div>
-        </div>
+        <div class="text-cyberPurple tracking-widest font-bold uppercase">Nexus Ecosystem Active Architecture</div>
         <div class="text-gray-600 font-sans text-[11px]">&copy; 2026 NEXUS. Systems online.</div>
     </footer>
 
     <script>
-        // PAGE MANAGER NAVIGATOR
+        let tokens = parseInt(localStorage.getItem('nexus_tokens')) || 0;
+        let timerSeconds = 1500; 
+        let timerInterval = null;
+
+        // QUIZ DATA DATA MATRIX STRUCTURE
+        const quizData = [
+            { question: "What language builds the backbone structure of all web pages?", choices: ["Python", "HTML", "C++", "Java"], correct: 1 },
+            { question: "Which styling framework is providing Nexus with its cyber visuals?", choices: ["Bootstrap", "Sass", "Tailwind CSS", "Vanilla Code"], correct: 2 },
+            { question: "What does the 'M' in HTML stand for?", choices: ["Machine", "Matrix", "Mainframe", "Markup"], correct: 3 },
+            { question: "Which symbol do we use in CSS to target a specific ID field?", choices: [". (dot)", "# (hashtag)", "$ (dollar)", "* (star)"], correct: 1 }
+        ];
+        let currentQuizIndex = 0;
+
+        function updateTokenDisplays() {
+            document.getElementById('global-tokens').innerText = tokens;
+            document.getElementById('leaderboard-user-tokens').innerText = tokens.toLocaleString() + " NXS";
+            localStorage.setItem('nexus_tokens', tokens);
+        }
+        updateTokenDisplays();
+
         function showPage(pageId) {
             document.getElementById('page-mainframe').style.display = (pageId === 'mainframe') ? 'block' : 'none';
             document.getElementById('page-study').style.display = (pageId === 'study') ? 'block' : 'none';
@@ -282,41 +239,39 @@
             window.scrollTo(0,0);
         }
 
-        // PORTAL (MODAL) HANDLERS
-        function openPortal(mode) {
-            document.getElementById('auth-portal').classList.remove('hidden');
-            switchForm(mode);
-        }
-        function closePortal() {
-            document.getElementById('auth-portal').classList.add('hidden');
-        }
-        function switchForm(mode) {
-            const tabLogin = document.getElementById('tab-login');
-            const tabSignup = document.getElementById('tab-signup');
-            const formLogin = document.getElementById('form-login');
-            const formSignup = document.getElementById('form-signup');
+        // NOTES GENERATOR SYSTEM
+        function addNewNote() {
+            const inputField = document.getElementById('note-input');
+            const noteText = inputField.value.trim();
+            if (noteText === '') return;
 
-            if(mode === 'login') {
-                tabLogin.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberBlue to-cyberPurple shadow-md";
-                tabSignup.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white";
-                formLogin.style.display = "block";
-                formSignup.style.display = "none";
-            } else {
-                tabSignup.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberPurple to-cyberPink shadow-md";
-                tabLogin.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white";
-                formSignup.style.display = "block";
-                formLogin.style.display = "none";
+            const container = document.getElementById('study-notes-container');
+            const newLog = document.createElement('div');
+            newLog.className = "bg-gradient-to-r from-cyberBlue/10 to-transparent p-3 rounded-lg border border-cyberBlue/20 text-white shadow-sm flex justify-between items-center";
+            newLog.innerHTML = `<span><span class="text-cyberBlue font-bold">[Scarlet.Owner]</span> ${noteText}</span> <span class="text-[9px] text-yellow-400 font-orbitron font-bold">+10 TOKENS</span>`;
+            
+            container.prepend(newLog);
+            inputField.value = '';
+            tokens += 10;
+            updateTokenDisplays();
+        }
+
+        // TIMER ACTIONS
+        function updateTimerDisplay() {
+            let mins = Math.floor(timerSeconds / 60);
+            let secs = timerSeconds % 60;
+            document.getElementById('timer-display').innerText = 
+                (mins < 10 ? '0' : '') + mins + ":" + (secs < 10 ? '0' : '') + secs;
+        }
+
+        function adjustTimer(amount) {
+            if (timerInterval) return; 
+            if (timerSeconds + amount >= 300 && timerSeconds + amount <= 3600) {
+                timerSeconds += amount;
+                updateTimerDisplay();
             }
         }
-        function submitGateway(event, statusText) {
-            event.preventDefault();
-            alert(statusText);
-            closePortal();
-        }
 
-        // POMODORO TIMER WORKER SYSTEM
-        let timerSeconds = 1500; 
-        let timerInterval = null;
         function toggleTimer() {
             const btn = document.getElementById('btn-timer');
             if (timerInterval) {
@@ -327,44 +282,60 @@
                 timerInterval = setInterval(() => {
                     if (timerSeconds > 0) {
                         timerSeconds--;
-                        let mins = Math.floor(timerSeconds / 60);
-                        let secs = timerSeconds % 60;
-                        document.getElementById('timer-display').innerText = 
-                            (mins < 10 ? '0' : '') + mins + ":" + (secs < 10 ? '0' : '') + secs;
+                        updateTimerDisplay();
                     } else {
                         clearInterval(timerInterval);
                         timerInterval = null;
-                        alert("Focus cycle sequence complete!");
+                        tokens += 50;
+                        updateTokenDisplays();
+                        alert("Focus cycle sequence complete! +50 Nexus Tokens mined.");
                         resetTimer();
                     }
                 }, 1000);
                 btn.innerText = "PAUSE CORE";
             }
         }
+
         function resetTimer() {
             clearInterval(timerInterval);
             timerInterval = null;
-            timerSeconds = 1500;
-            document.getElementById('timer-display').innerText = "25:00";
+            timerSeconds = 1500; 
+            updateTimerDisplay();
             document.getElementById('btn-timer').innerText = "START CYCLE";
-            document.getElementById('btn-timer').className = "px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue";
         }
 
-        // INTERACTIVE VOTING SYSTEM ENGINE
-        let animeVotes = 42;
-        let gamingVotes = 58;
-        function castVote(choice) {
-            if(choice === 'anime') animeVotes++;
-            else gamingVotes++;
-            let total = animeVotes + gamingVotes;
-            let aPct = Math.round((animeVotes / total) * 100);
-            let gPct = Math.round((gamingVotes / total) * 100);
-            
-            document.getElementById('vote-anime-pct').innerText = aPct + "%";
-            document.getElementById('vote-gaming-pct').innerText = gPct + "%";
-            document.getElementById('vote-anime-bar').style.width = aPct + "%";
-            document.getElementById('vote-gaming-bar').style.width = gPct + "%";
+        // LIVE COMPILING QUIZ LOGIC MATRIX
+        function loadQuizQuestion() {
+            const qBox = document.getElementById('quiz-question');
+            const oBox = document.getElementById('quiz-options');
+            oBox.innerHTML = ''; // Clear previous answer blocks
+
+            let item = quizData[currentQuizIndex];
+            qBox.innerText = item.question;
+
+            item.choices.forEach((choice, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-black/40 border border-white/5 hover:border-purple-500 rounded px-3 py-2 text-xs transition-all text-gray-300 hover:text-white";
+                btn.innerText = `${idx + 1}. ${choice}`;
+                btn.onclick = () => checkQuizAnswer(idx);
+                oBox.appendChild(btn);
+            });
         }
-    </script>
-</body>
-</html>
+
+        function checkQuizAnswer(selectedIdx) {
+            let item = quizData[currentQuizIndex];
+            if (selectedIdx === item.correct) {
+                tokens += 100;
+                updateTokenDisplays();
+                alert("CORRECT DATA STREAM MODIFICATION! +100 Tokens decrypted.");
+            } else {
+                alert("DATAFRAME MISMATCH. Incorrect sequence path.");
+            }
+            
+            // Advance question sequence array loop tracker
+            currentQuizIndex = (currentQuizIndex + 1) % quizData.length;
+            loadQuizQuestion();
+        }
+        // Initialize the first problem set node automatically
+        loadQuizQuestion();
+
