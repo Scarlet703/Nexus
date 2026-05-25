@@ -43,16 +43,6 @@
         .split-divider {
             background: linear-gradient(to bottom, #00f2fe, #9b51e0 50%, #ff007f);
         }
-        /* Custom styles for the overlay authentication portal */
-        .portal-blur {
-            backdrop-filter: blur(12px);
-            background: rgba(11, 12, 16, 0.8);
-        }
-        .tab-btn.active {
-            background: linear-gradient(135deg, #00f2fe, #9b51e0);
-            color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 242, 254, 0.2);
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative">
@@ -108,19 +98,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800 hover:border-cyberBlue/50 transition-all group">
-                        <div class="flex items-start space-x-4">
-                            <div class="p-3 bg-cyberBlue/10 rounded-lg text-cyberBlue"><i class="fas fa-chart-bar text-xl"></i></div>
-                            <div class="flex-1">
-                                <span class="text-[10px] font-orbitron text-cyberBlue uppercase tracking-wider">Data Science</span>
-                                <h4 class="text-white font-semibold group-hover:text-cyberBlue transition-colors">Data Visualization with Python</h4>
-                                <div class="flex space-x-4 text-xs text-gray-500 mt-2 font-inter">
-                                    <span><i class="far fa-user text-cyberBlue/70 mr-1"></i> DataSprite</span>
-                                    <span><i class="far fa-eye mr-1"></i> 987</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -140,4 +117,124 @@
                         <span class="w-2 h-2 bg-cyberPink rounded-full mr-2 animate-pulse"></span> TRENDING IN FANDOM HUB
                     </h3>
                     <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800 hover:border-cyberPink/50 transition-all group">
-                        <div class="flex items-start space-x
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 bg-cyberPink/10 rounded-lg text-cyberPink"><i class="fas fa-crosshairs text-xl"></i></div>
+                            <div class="flex-1">
+                                <span class="text-[10px] font-orbitron text-cyberPink uppercase tracking-wider">Anime</span>
+                                <h4 class="text-white font-semibold group-hover:text-cyberPink transition-colors">Demon Slayer Season 4 Hype!</h4>
+                                <div class="flex space-x-4 text-xs text-gray-500 mt-2 font-inter">
+                                    <span><i class="far fa-user text-cyberPink/70 mr-1"></i> ShadowFlame</span>
+                                    <span><i class="far fa-eye mr-1"></i> 2.3K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="auth-portal" class="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-black/70 hidden p-4">
+        <div class="bg-[#0f1624]/95 border border-cyberBlue/30 p-8 rounded-2xl w-full max-w-[400px] shadow-2xl relative">
+            
+            <button onclick="closePortal()" class="absolute top-4 right-4 text-gray-400 hover:text-cyberPink transition-colors text-2xl font-bold">&times;</button>
+            
+            <div class="text-center mb-6">
+                <h2 class="font-orbitron font-black text-2xl tracking-wider bg-gradient-to-r from-cyberBlue to-cyberPurple bg-clip-text text-transparent">NEXUS GATEWAY</h2>
+            </div>
+
+            <div class="flex bg-white/5 p-1 rounded-lg mb-6 border border-white/5">
+                <button id="tab-login" class="flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberBlue to-cyberPurple shadow-md" onclick="switchForm('login')">LOG IN</button>
+                <button id="tab-signup" class="flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white" onclick="switchForm('signup')">JOIN</button>
+            </div>
+
+            <form id="form-login" onsubmit="submitGateway(event, 'Grid connection established. Welcome back!')" class="block">
+                <div class="mb-4">
+                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">IDENTITY / EMAIL</label>
+                    <input type="email" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberBlue text-sm">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">SECURE PASSKEY</label>
+                    <input type="password" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberBlue text-sm">
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyberBlue to-cyberPurple rounded-lg text-white font-bold font-orbitron tracking-wide shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">INITIALIZE LOGIN</button>
+            </form>
+
+            <form id="form-signup" onsubmit="submitGateway(event, 'Account synchronized into the mainframe!')" class="hidden">
+                <div class="mb-4">
+                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">CHOOSE HANDLE</label>
+                    <input type="text" placeholder="e.g., CyberNinja" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberPurple text-sm">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">GRID EMAIL</label>
+                    <input type="email" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberPurple text-sm">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-xs font-orbitron text-gray-400 mb-1 tracking-wider">GENERATE PASSKEY</label>
+                    <input type="password" required class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5 text-white outline-none focus:border-cyberPurple text-sm">
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyberPurple to-cyberPink rounded-lg text-white font-bold font-orbitron tracking-wide shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">REGISTER PROFILE</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="border-t border-gray-800 bg-darkBg/50 py-6 font-orbitron text-xs text-center space-y-4 z-10">
+        <div class="text-cyberPurple tracking-widest font-bold uppercase">100% Secure Anonymity System</div>
+        <div class="flex flex-wrap justify-center gap-6 items-center px-4">
+            <div class="flex flex-col items-center space-y-1">
+                <div class="w-9 h-9 rounded-full border border-cyberBlue p-0.5 shadow-glowBlue flex items-center justify-center"><i class="fas fa-user-ninja text-cyberBlue"></i></div>
+                <span class="text-[10px] text-gray-500 font-mono">CyberWizard44</span>
+            </div>
+            <div class="flex flex-col items-center space-y-1">
+                <div class="w-9 h-9 rounded-full border border-cyberPink p-0.5 shadow-glowPink flex items-center justify-center"><i class="fas fa-user-astronaut text-cyberPink"></i></div>
+                <span class="text-[10px] text-gray-500 font-mono">VibraniumPhx</span>
+            </div>
+        </div>
+        <div class="text-gray-600 font-sans text-[11px]">&copy; 2026 NEXUS. Systems online.</div>
+    </footer>
+
+    <script>
+        function openPortal(mode) {
+            document.getElementById('auth-portal').classList.remove('hidden');
+            switchForm(mode);
+        }
+
+        function closePortal() {
+            document.getElementById('auth-portal').classList.add('hidden');
+        }
+
+        function switchForm(mode) {
+            const tabLogin = document.getElementById('tab-login');
+            const tabSignup = document.getElementById('tab-signup');
+            const formLogin = document.getElementById('form-login');
+            const formSignup = document.getElementById('form-signup');
+
+            if(mode === 'login') {
+                // Style Login active
+                tabLogin.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberBlue to-cyberPurple shadow-md";
+                // Style Signup inactive
+                tabSignup.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white";
+                
+                // Show Login Form, Hide Signup Form
+                formLogin.style.display = "block";
+                formSignup.style.display = "none";
+            } else {
+                // Style Signup active
+                tabSignup.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-white bg-gradient-to-r from-cyberPurple to-cyberPink shadow-md";
+                // Style Login inactive
+                tabLogin.className = "flex-1 py-2 text-sm font-semibold rounded-md transition-all text-gray-400 hover:text-white";
+                
+                // Show Signup Form, Hide Login Form
+                formSignup.style.display = "block";
+                formLogin.style.display = "none";
+            }
+        }
+
+        function submitGateway(event, statusText) {
+            event.preventDefault();
+            alert(statusText);
+            closePortal();
+        }
+    </script>
+</body>
+</html>
