@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Two Worlds. One Community.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cyberBlue: '#00f0ff',
+                        cyberPink: '#ff007f',
+                        cyberPurple: '#9d4edd',
+                        darkBg: '#0b0b14',
+                        cardBg: '#131324',
+                    },
+                    boxShadow: {
+                        blueGlow: '0 0 15px rgba(0, 240, 255, 0.4)',
+                        pinkGlow: '0 0 15px rgba(255, 0, 127, 0.4)',
+                        purpleGlow: '0 0 20px rgba(157, 78, 221, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0b14;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-text-blue { text-shadow: 0 0 10px rgba(0, 240, 255, 0.6); }
+        .glow-text-pink { text-shadow: 0 0 10px rgba(255, 0, 127, 0.6); }
+        .split-divider {
+            background: linear-gradient(180deg, #00f0ff 0%, #9d4edd 50%, #ff007f 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <nav class="border-b border-gray-800 bg-darkBg/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 border-2 border-cyberBlue rotate-45 flex items-center justify-center shadow-blueGlow">
+                <span class="font-orbitron font-bold text-xs -rotate-45 text-cyberBlue">N</span>
+            </div>
+            <span class="font-orbitron font-black tracking-widest text-xl text-white">NEXUS</span>
+        </div>
+        <div class="hidden md:flex space-x-8 font-orbitron text-xs tracking-wider text-gray-400">
+            <a href="#" class="text-cyberBlue transition-colors">HOME</a>
+            <a href="#" class="hover:text-white transition-colors">EXPLORE</a>
+            <a href="#" class="hover:text-white transition-colors">COMMUNITIES</a>
+            <a href="#" class="hover:text-white transition-colors">CHALLENGES</a>
+        </div>
+        <div class="flex space-x-4 font-orbitron text-xs">
+            <button class="px-4 py-2 text-gray-300 hover:text-white transition-colors">LOG IN</button>
+            <button class="px-4 py-2 bg-gradient-to-r from-cyberBlue to-cyberPurple rounded font-bold shadow-purpleGlow hover:opacity-90 transition-opacity">JOIN NEXUS</button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl w-full mx-auto px-4 py-12 flex-grow">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
+            <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] split-divider opacity-40 transform -translate-x-1/2"></div>
+            
+            <div class="hidden lg:flex absolute left-1/2 top-1/4 transform -translate-x-1/2 -translate-y-1/2 z-10 flex-col items-center">
+                <div class="w-16 h-16 bg-darkBg border-2 border-cyberPurple rounded-xl flex items-center justify-center shadow-purpleGlow rotate-45">
+                    <span class="font-orbitron text-2xl font-bold text-white -rotate-45">⚡</span>
+                </div>
+                <p class="font-orbitron text-[10px] tracking-widest text-gray-400 mt-4">TWO WORLDS</p>
+                <p class="font-orbitron text-[9px] tracking-widest text-cyberPurple">ONE COMMUNITY</p>
+            </div>
+
+            <div class="space-y-8 pr-0 lg:pr-8">
+                <div class="border-l-4 border-cyberBlue pl-4">
+                    <span class="text-xs font-orbitron tracking-widest text-cyberBlue uppercase">Learn. Share. Grow.</span>
+                    <h1 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-blue">STUDY HUB</h1>
+                    <p class="text-sm text-gray-400 mt-2 max-w-md">Collaborate on knowledge, master new skills, and build your future together.</p>
+                </div>
+                <button class="w-full sm:w-auto px-6 py-3 border border-cyberBlue text-cyberBlue font-orbitron text-xs tracking-widest rounded bg-cyberBlue/5 hover:bg-cyberBlue/20 shadow-blueGlow transition-all">
+                    ENTER STUDY HUB <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+
+                <div class="space-y-4 pt-4">
+                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider flex items-center">
+                        <span class="w-2 h-2 bg-cyberBlue rounded-full mr-2 animate-pulse"></span> TRENDING IN STUDY HUB
+                    </h3>
+                    
+                    <div class="bg-cardBg/60 p-4 rounded-xl border border-gray-800/80 hover:border-cyberBlue/40 transition-all flex items-start space-x-4 group cursor-pointer">
+                        <div class="p-3 bg-cyberBlue/10 rounded-lg text-cyberBlue text-xl group-hover:scale-110 transition-transform">🧠</div>
+                        <div class="flex-1">
+                            <span class="text-[10px] text-cyberBlue font-orbitron uppercase tracking-wider">AI & ML</span>
+                            <h4 class="font-semibold text-sm text-gray-200 mt-0.5">Neural Networks Explained Simply</h4>
+                            <div class="flex space-x-4 text-xs text-gray-500 mt-2">
+                                <span><i class="fa-regular fa-user mr-1 text-cyberBlue"></i> ByteBard</span>
+                                <span><i class="fa-regular fa-eye mr-1"></i> 1.2K</span>
+                                <span><i class="fa-regular fa-comment mr-1"></i> 120</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg/60 p-4 rounded-xl border border-gray-800/80 hover:border-cyberBlue/40 transition-all flex items-start space-x-4 group cursor-pointer">
+                        <div class="p-3 bg-cyberBlue/10 rounded-lg text-cyberBlue text-xl group-hover:scale-110 transition-transform">📊</div>
+                        <div class="flex-1">
+                            <span class="text-[10px] text-cyberBlue font-orbitron uppercase tracking-wider">Data Science</span>
+                            <h4 class="font-semibold text-sm text-gray-200 mt-0.5">Data Visualization with Python</h4>
+                            <div class="flex space-x-4 text-xs text-gray-500 mt-2">
+                                <span><i class="fa-regular fa-user mr-1 text-cyberBlue"></i> DataSprite</span>
+                                <span><i class="fa-regular fa-eye mr-1"></i> 987</span>
+                                <span><i class="fa-regular fa-comment mr-1"></i> 64</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8 pl-0 lg:pl-12 lg:text-right flex flex-col items-start lg:items-end">
+                <div class="border-r-0 lg:border-r-4 border-l-4 lg:border-l-0 border-cyberPink pl-4 lg:pl-0 lg:pr-4 w-full">
+                    <span class="text-xs font-orbitron tracking-widest text-cyberPink uppercase">Connect. Celebrate. Belong.</span>
+                    <h1 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-pink">FANDOM HUB</h1>
+                    <p class="text-sm text-gray-400 mt-2 max-w-md ml-auto">Dive into fandoms, share your passion, and vibe with your people.</p>
+                </div>
+                <button class="w-full sm:w-auto px-6 py-3 border border-cyberPink text-cyberPink font-orbitron text-xs tracking-widest rounded bg-cyberPink/5 hover:bg-cyberPink/20 shadow-pinkGlow transition-all">
+                    ENTER FANDOM HUB <i class="fa-solid fa-arrow-right ml-2 lg:rotate-0"></i>
+                </button>
+
+                <div class="space-y-4 pt-4 w-full text-left">
+                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider flex items-center lg:justify-end">
+                        <span class="w-2 h-2 bg-cyberPink rounded-full mr-2 lg:mr-0 lg:ml-2 order-first lg:order-last animate-pulse"></span> TRENDING IN FANDOM HUB
+                    </h3>
+                    
+                    <div class="bg-cardBg/60 p-4 rounded-xl border border-gray-800/80 hover:border-cyberPink/40 transition-all flex items-start space-x-4 group cursor-pointer">
+                        <div class="p-3 bg-cyberPink/10 rounded-lg text-cyberPink text-xl group-hover:scale-110 transition-transform">⚔️</div>
+                        <div class="flex-1">
+                            <span class="text-[10px] text-cyberPink font-orbitron uppercase tracking-wider">Anime</span>
+                            <h4 class="font-semibold text-sm text-gray-200 mt-0.5">Demon Slayer Season 4 Hype!</h4>
+                            <div class="flex space-x-4 text-xs text-gray-500 mt-2">
+                                <span><i class="fa-regular fa-user mr-1 text-cyberPink"></i> ShadowFlame</span>
+                                <span><i class="fa-regular fa-eye mr-1"></i> 2.3K</span>
+                                <span><i class="fa-regular fa-comment mr-1"></i> 312</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cardBg/60 p-4 rounded-xl border border-gray-800/80 hover:border-cyberPink/40 transition-all flex items-start space-x-4 group cursor-pointer">
+                        <div class="p-3 bg-cyberPink/10 rounded-lg text-cyberPink text-xl group-hover:scale-110 transition-transform">🎮</div>
+                        <div class="flex-1">
+                            <span class="text-[10px] text-cyberPink font-orbitron uppercase tracking-wider">Gaming</span>
+                            <h4 class="font-semibold text-sm text-gray-200 mt-0.5">Zelda: Tears of the Kingdom Secrets</h4>
+                            <div class="flex space-x-4 text-xs text-gray-500 mt-2">
+                                <span><i class="fa-regular fa-user mr-1 text-cyberPink"></i> PixelHero</span>
+                                <span><i class="fa-regular fa-eye mr-1"></i> 1.8K</span>
+                                <span><i class="fa-regular fa-comment mr-1"></i> 210</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 border border-gray-800/60 rounded-2xl bg-cardBg/40 p-6 max-w-4xl mx-auto text-center space-y-6">
+            <h3 class="font-orbitron tracking-widest text-xs text-cyberPurple font-bold">100% SECURE ANONYMITY SYSTEM</h3>
+            <div class="flex flex-wrap justify-center gap-6 items-center">
+                <div class="flex flex-col items-center space-y-2 bg-darkBg/60 p-3 rounded-xl border border-cyberBlue/20 w-24">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyberBlue to-blue-900 rounded-full flex items-center justify-center text-lg border border-cyberBlue shadow-blueGlow">🧙‍♂️</div>
+                    <span class="text-[10px] text-gray-400 font-mono truncate w-20">CyberWizard44</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2 bg-darkBg/60 p-3 rounded-xl border border-cyberPink/20 w-24">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyberPink to-red-900 rounded-full flex items-center justify-center text-lg border border-cyberPink shadow-pinkGlow">🦅</div>
+                    <span class="text-[10px] text-gray-400 font-mono truncate w-20">VibraniumPhx</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2 bg-darkBg/60 p-3 rounded-xl border border-cyberPurple/20 w-24">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyberPurple to-indigo-900 rounded-full flex items-center justify-center text-lg border border-cyberPurple shadow-purpleGlow">🥷</div>
+                    <span class="text-[10px] text-
