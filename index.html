@@ -57,7 +57,7 @@
         
         <div class="flex items-center bg-black/40 border border-cyberBlue/30 rounded-full px-4 py-1.5 font-orbitron text-xs text-cyberBlue gap-2 shadow-glowBlue">
             <i class="fas fa-coins text-yellow-400"></i>
-            <span>NEXUS TOKENS:</span>
+            <span>TOKENS:</span>
             <span id="global-tokens" class="font-bold text-white">0</span>
         </div>
     </header>
@@ -99,7 +99,7 @@
         
         <div class="border-b border-gray-800 pb-4 mb-8">
             <h1 class="text-3xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
-            <p class="text-sm text-gray-400">Mine tokens by solving quizzes, logging focus cycles, and submitting code notes.</p>
+            <p class="text-sm text-gray-400">Log notes, complete quizzes, and activate timers to mine platform credits.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -114,17 +114,17 @@
                     </div>
 
                     <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-4 tracking-wider">25:00</div>
-                    <p class="text-[10px] text-gray-500 font-mono mb-4">REWARD: +50 NEXUS TOKENS</p>
+                    <p class="text-[10px] text-gray-500 font-mono mb-4">REWARD: +50 TOKENS</p>
                     <div class="flex justify-center gap-4">
-                        <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START CYCLE</button>
-                        <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded hover:text-white">RESET</button>
+                        <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START</button>
+                        <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded">RESET</button>
                     </div>
                 </div>
 
-                <div class="bg-cardBg/80 border border-purple-500/30 p-6 rounded-2xl shadow-lg relative">
-                    <h3 class="font-orbitron text-xs text-purple-400 tracking-widest mb-3"><i class="fas fa-brain text-yellow-400"></i> CYBER QUIZ CORE</h3>
+                <div class="bg-cardBg/80 border border-cyberPurple/40 p-6 rounded-2xl shadow-lg">
+                    <h3 class="font-orbitron text-xs text-purple-400 tracking-widest mb-3"><i class="fas fa-brain text-yellow-400 mr-1"></i> COGNITIVE QUIZ CORE</h3>
                     <div id="quiz-box">
-                        <p id="quiz-question" class="text-sm text-white mb-4 font-medium">Loading network data matrices...</p>
+                        <p id="quiz-question" class="text-xs text-white mb-4 font-medium leading-relaxed">Loading questions...</p>
                         <div id="quiz-options" class="space-y-2">
                             </div>
                     </div>
@@ -133,14 +133,14 @@
 
             <div class="lg:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY NOTES (+10 TOKENS PER NOTE)</h3>
-                    <div id="study-notes-container" class="space-y-3 font-mono text-xs text-gray-300 max-h-[340px] overflow-y-auto pr-2">
-                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[CyberWizard44]</span> Finished drafting basic setup arrays.</div>
-                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[ByteBard]</span> Left custom CSS configurations in repository deck.</div>
+                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY NOTES (+10 TOKENS)</h3>
+                    <div id="study-notes-container" class="space-y-3 font-mono text-xs text-gray-300 max-h-72 overflow-y-auto pr-2">
+                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[CyberWizard44]</span> Setup initial mainframe arrays.</div>
+                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[ByteBard]</span> Left global configuration values live.</div>
                     </div>
                 </div>
                 <div class="mt-6 flex gap-2">
-                    <input id="note-input" type="text" placeholder="Type a note onto the grid layout..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2.5 text-sm text-white focus:border-cyberBlue outline-none">
+                    <input id="note-input" type="text" placeholder="Type a note onto the grid data display..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2.5 text-sm text-white focus:border-cyberBlue outline-none">
                     <button onclick="addNewNote()" class="px-5 py-2.5 bg-gradient-to-r from-cyberBlue to-cyberPurple text-white font-orbitron font-bold text-xs rounded shadow-glowBlue">POST</button>
                 </div>
             </div>
@@ -154,7 +154,7 @@
         
         <div class="border-b border-gray-800 pb-4 mb-8">
             <h1 class="text-3xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
-            <p class="text-sm text-gray-400">Interact with network items to build global community rank points.</p>
+            <p class="text-sm text-gray-400">Track user score positions and vote in trending community data streams.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -176,29 +176,27 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-2 space-y-6">
-                <div class="bg-cardBg/50 border border-gray-800 p-6 rounded-2xl">
-                    <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
-                    <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
-                    
-                    <div class="space-y-4 text-xs font-orbitron">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
-                                <span id="vote-anime-pct">42%</span>
-                            </div>
-                            <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
-                                <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
-                            </div>
+            <div class="lg:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl h-fit">
+                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
+                <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
+                
+                <div class="space-y-4 text-xs font-orbitron">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
+                            <span id="vote-anime-pct">42%</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
-                                <span id="vote-gaming-pct">58%</span>
-                            </div>
-                            <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
-                                <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
-                            </div>
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                            <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
+                            <span id="vote-gaming-pct">58%</span>
+                        </div>
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                            <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
                         </div>
                     </div>
                 </div>
@@ -212,26 +210,16 @@
     </footer>
 
     <script>
+        // WALLET MANAGEMENT SYSTEM
         let tokens = parseInt(localStorage.getItem('nexus_tokens')) || 0;
-        let timerSeconds = 1500; 
-        let timerInterval = null;
-
-        // QUIZ DATA DATA MATRIX STRUCTURE
-        const quizData = [
-            { question: "What language builds the backbone structure of all web pages?", choices: ["Python", "HTML", "C++", "Java"], correct: 1 },
-            { question: "Which styling framework is providing Nexus with its cyber visuals?", choices: ["Bootstrap", "Sass", "Tailwind CSS", "Vanilla Code"], correct: 2 },
-            { question: "What does the 'M' in HTML stand for?", choices: ["Machine", "Matrix", "Mainframe", "Markup"], correct: 3 },
-            { question: "Which symbol do we use in CSS to target a specific ID field?", choices: [". (dot)", "# (hashtag)", "$ (dollar)", "* (star)"], correct: 1 }
-        ];
-        let currentQuizIndex = 0;
 
         function updateTokenDisplays() {
             document.getElementById('global-tokens').innerText = tokens;
             document.getElementById('leaderboard-user-tokens').innerText = tokens.toLocaleString() + " NXS";
             localStorage.setItem('nexus_tokens', tokens);
         }
-        updateTokenDisplays();
 
+        // VIEWPORT PAGE CONTROLLER
         function showPage(pageId) {
             document.getElementById('page-mainframe').style.display = (pageId === 'mainframe') ? 'block' : 'none';
             document.getElementById('page-study').style.display = (pageId === 'study') ? 'block' : 'none';
@@ -239,7 +227,7 @@
             window.scrollTo(0,0);
         }
 
-        // NOTES GENERATOR SYSTEM
+        // CONSOLIDATED NOTES GENERATOR
         function addNewNote() {
             const inputField = document.getElementById('note-input');
             const noteText = inputField.value.trim();
@@ -247,7 +235,7 @@
 
             const container = document.getElementById('study-notes-container');
             const newLog = document.createElement('div');
-            newLog.className = "bg-gradient-to-r from-cyberBlue/10 to-transparent p-3 rounded-lg border border-cyberBlue/20 text-white shadow-sm flex justify-between items-center";
+            newLog.className = "bg-gradient-to-r from-cyberBlue/10 to-transparent p-3 rounded-lg border border-cyberBlue/20 text-white flex justify-between items-center animate-fade-in";
             newLog.innerHTML = `<span><span class="text-cyberBlue font-bold">[Scarlet.Owner]</span> ${noteText}</span> <span class="text-[9px] text-yellow-400 font-orbitron font-bold">+10 TOKENS</span>`;
             
             container.prepend(newLog);
@@ -256,7 +244,10 @@
             updateTokenDisplays();
         }
 
-        // TIMER ACTIONS
+        // FOCUS CYCLE TIMING CORE
+        let timerSeconds = 1500; 
+        let timerInterval = null;
+
         function updateTimerDisplay() {
             let mins = Math.floor(timerSeconds / 60);
             let secs = timerSeconds % 60;
@@ -277,7 +268,7 @@
             if (timerInterval) {
                 clearInterval(timerInterval);
                 timerInterval = null;
-                btn.innerText = "START CYCLE";
+                btn.innerText = "START";
             } else {
                 timerInterval = setInterval(() => {
                     if (timerSeconds > 0) {
@@ -288,11 +279,11 @@
                         timerInterval = null;
                         tokens += 50;
                         updateTokenDisplays();
-                        alert("Focus cycle sequence complete! +50 Nexus Tokens mined.");
+                        alert("Focus cycle sequence complete! +50 Tokens mined.");
                         resetTimer();
                     }
                 }, 1000);
-                btn.innerText = "PAUSE CORE";
+                btn.innerText = "PAUSE";
             }
         }
 
@@ -301,21 +292,30 @@
             timerInterval = null;
             timerSeconds = 1500; 
             updateTimerDisplay();
-            document.getElementById('btn-timer').innerText = "START CYCLE";
+            document.getElementById('btn-timer').innerText = "START";
         }
 
-        // LIVE COMPILING QUIZ LOGIC MATRIX
+        // QUIZ TERMINAL CORE LOGIC MATRIX
+        const quizData = [
+            { question: "What language builds the structural backbone of all web pages?", choices: ["Python", "HTML", "C++", "Java"], correct: 1 },
+            { question: "Which styling framework powers our Nexus user interface designs?", choices: ["Bootstrap", "Sass", "Tailwind CSS", "Vanilla CSS"], correct: 2 },
+            { question: "What does the 'M' in HTML represent?", choices: ["Machine", "Matrix", "Mainframe", "Markup"], correct: 3 },
+            { question: "Which symbol targets a clean target element ID inside CSS styling?", choices: [". (dot)", "# (hashtag)", "$ (dollar)", "* (star)"], correct: 1 }
+        ];
+        let currentQuizIndex = 0;
+
         function loadQuizQuestion() {
             const qBox = document.getElementById('quiz-question');
             const oBox = document.getElementById('quiz-options');
-            oBox.innerHTML = ''; // Clear previous answer blocks
+            if(!qBox || !oBox) return;
+            oBox.innerHTML = ''; 
 
             let item = quizData[currentQuizIndex];
             qBox.innerText = item.question;
 
             item.choices.forEach((choice, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "w-full text-left bg-black/40 border border-white/5 hover:border-purple-500 rounded px-3 py-2 text-xs transition-all text-gray-300 hover:text-white";
+                btn.className = "w-full text-left bg-black/40 border border-white/5 hover:border-purple-500 rounded px-3 py-2 text-xs text-gray-300 hover:text-white transition-all";
                 btn.innerText = `${idx + 1}. ${choice}`;
                 btn.onclick = () => checkQuizAnswer(idx);
                 oBox.appendChild(btn);
@@ -327,15 +327,35 @@
             if (selectedIdx === item.correct) {
                 tokens += 100;
                 updateTokenDisplays();
-                alert("CORRECT DATA STREAM MODIFICATION! +100 Tokens decrypted.");
+                alert("CORRECT DATA ACCESS DECISION! +100 Tokens verified.");
             } else {
-                alert("DATAFRAME MISMATCH. Incorrect sequence path.");
+                alert("DATAFRAME MISMATCH. Sequence paths dropped.");
             }
-            
-            // Advance question sequence array loop tracker
             currentQuizIndex = (currentQuizIndex + 1) % quizData.length;
             loadQuizQuestion();
         }
-        // Initialize the first problem set node automatically
-        loadQuizQuestion();
+
+        // COMMUNITY VOTING DECK ENGINE
+        let animeVotes = 42;
+        let gamingVotes = 58;
+        function castVote(choice) {
+            if(choice === 'anime') animeVotes++;
+            else gamingVotes++;
+            let total = animeVotes + gamingVotes;
+            let aPct = Math.round((animeVotes / total) * 100);
+            let gPct = Math.round((gamingVotes / total) * 100);
+            document.getElementById('vote-anime-pct').innerText = aPct + "%";
+            document.getElementById('vote-gaming-pct').innerText = gPct + "%";
+            document.getElementById('vote-anime-bar').style.width = aPct + "%";
+            document.getElementById('vote-gaming-bar').style.width = gPct + "%";
+        }
+
+        // INITIALIZE RUNTIME INTERFACE MODULES ON LOAD
+        window.onload = function() {
+            updateTokenDisplays();
+            loadQuizQuestion();
+        };
+    </script>
+</body>
+</html>
 
