@@ -26,7 +26,6 @@
                     boxShadow: {
                         glowBlue: '0 0 15px rgba(0, 242, 254, 0.4)',
                         glowPink: '0 0 15px rgba(255, 0, 127, 0.4)',
-                        glowYellow: '0 0 15px rgba(255, 255, 0, 0.3)',
                     }
                 }
             }
@@ -40,178 +39,162 @@
         }
         .glow-text-blue { text-shadow: 0 0 8px rgba(0, 242, 254, 0.6); }
         .glow-text-pink { text-shadow: 0 0 8px rgba(255, 0, 127, 0.6); }
-        .split-divider {
-            background: linear-gradient(to bottom, #00f2fe, #9b51e0 50%, #ff007f);
-        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+<body class="bg-darkBg min-h-screen text-white flex flex-col">
 
-    <header class="border-b border-gray-800 bg-darkBg/80 backdrop-blur-md sticky top-0 z-40 px-4 py-4 flex justify-between items-center">
+    <header class="border-b border-gray-800 bg-darkBg/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center w-full">
         <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('mainframe')">
             <div class="w-8 h-8 border-2 border-cyberBlue rotate-45 flex items-center justify-center shadow-glowBlue">
                 <span class="font-orbitron font-bold text-sm text-white -rotate-45">N</span>
             </div>
-            <span class="font-orbitron font-black tracking-widest text-xl text-white">NEXUS</span>
+            <span class="font-orbitron font-black tracking-widest text-xl text-white ml-1">NEXUS</span>
         </div>
         
-        <div class="flex items-center bg-black/40 border border-cyberBlue/30 rounded-full px-4 py-1.5 font-orbitron text-xs text-cyberBlue gap-2 shadow-glowBlue">
+        <div class="flex items-center bg-black/50 border border-cyberBlue/30 rounded-full px-4 py-1.5 font-orbitron text-xs text-cyberBlue gap-2 shadow-glowBlue">
             <i class="fas fa-coins text-yellow-400"></i>
             <span>TOKENS:</span>
             <span id="global-tokens" class="font-bold text-white">0</span>
         </div>
     </header>
 
-    <main id="page-mainframe" class="max-w-7xl mx-auto px-4 py-12 flex-grow z-10 w-full block">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
-            <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px split-divider opacity-40 transform -translate-x-1/2"></div>
-            
-            <div class="space-y-8 lg:pr-6">
-                <div class="border-l-4 border-cyberBlue pl-4">
-                    <span class="text-xs font-orbitron tracking-widest text-cyberBlue uppercase">Learn. Share. Grow.</span>
-                    <h2 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-blue">STUDY HUB</h2>
-                    <p class="text-sm text-gray-400 mt-2">Collaborate on knowledge, master new skills, and build your future together.</p>
-                </div>
-                <button onclick="showPage('study')" class="w-full sm:w-auto px-6 py-3 bg-cyberBlue/10 border border-cyberBlue text-cyberBlue font-orbitron text-sm rounded hover:bg-cyberBlue/20 transition-all flex items-center justify-center space-x-2 shadow-glowBlue">
-                    <span>ENTER STUDY HUB</span>
-                    <i class="fas fa-arrow-right text-xs"></i>
-                </button>
+    <div id="page-mainframe" class="w-full max-w-4xl mx-auto px-4 py-8 space-y-12 flex-grow">
+        <div class="bg-cardBg/40 border border-gray-800 p-6 rounded-2xl relative overflow-hidden group hover:border-cyberBlue/40 transition-all">
+            <div class="border-l-4 border-cyberBlue pl-4">
+                <span class="text-xs font-orbitron tracking-widest text-cyberBlue uppercase">Learn. Share. Grow.</span>
+                <h2 class="text-3xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-blue">STUDY HUB</h2>
+                <p class="text-xs text-gray-400 mt-2 max-w-xl">Collaborate on databases, log custom study notes, modify custom clocks, and pass system validation tests.</p>
             </div>
-
-            <div class="space-y-8 lg:pl-6">
-                <div class="border-l-4 border-cyberPink pl-4">
-                    <span class="text-xs font-orbitron tracking-widest text-cyberPink uppercase">Connect. Celebrate. Belong.</span>
-                    <h2 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-pink">FANDOM HUB</h2>
-                    <p class="text-sm text-gray-400 mt-2">Dive into fandoms, share your passion, and vibe with your people.</p>
-                </div>
-                <button onclick="showPage('fandom')" class="w-full sm:w-auto px-6 py-3 bg-cyberPink/10 border border-cyberPink text-cyberPink font-orbitron text-sm rounded hover:bg-cyberPink/20 transition-all flex items-center justify-center space-x-2 shadow-glowPink">
-                    <span>ENTER FANDOM HUB</span>
-                    <i class="fas fa-arrow-right text-xs"></i>
-                </button>
-            </div>
+            <button onclick="showPage('study')" class="mt-6 w-full sm:w-auto px-6 py-3 bg-cyberBlue/10 border border-cyberBlue text-cyberBlue font-orbitron text-xs font-bold rounded hover:bg-cyberBlue/20 transition-all flex items-center justify-center space-x-2 shadow-glowBlue">
+                <span>ENTER STUDY HUB</span>
+                <i class="fas fa-arrow-right text-xs"></i>
+            </button>
         </div>
-    </main>
 
-    <main id="page-study" class="max-w-6xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+        <div class="bg-cardBg/40 border border-gray-800 p-6 rounded-2xl relative overflow-hidden group hover:border-cyberPink/40 transition-all">
+            <div class="border-l-4 border-cyberPink pl-4">
+                <span class="text-xs font-orbitron tracking-widest text-cyberPink uppercase">Connect. Celebrate. Belong.</span>
+                <h2 class="text-3xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-pink">FANDOM HUB</h2>
+                <p class="text-xs text-gray-400 mt-2 max-w-xl">Track system scoreboard arrays, cast network preference logs, and sync up live community message channels.</p>
+            </div>
+            <button onclick="showPage('fandom')" class="mt-6 w-full sm:w-auto px-6 py-3 bg-cyberPink/10 border border-cyberPink text-cyberPink font-orbitron text-xs font-bold rounded hover:bg-cyberPink/20 transition-all flex items-center justify-center space-x-2 shadow-glowPink">
+                <span>ENTER FANDOM HUB</span>
+                <i class="fas fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="page-study" class="w-full max-w-5xl mx-auto px-4 py-8 hidden flex-grow">
         <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberBlue hover:underline flex items-center gap-2">
             <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
         </button>
         
-        <div class="border-b border-gray-800 pb-4 mb-8">
-            <h1 class="text-3xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
-            <p class="text-sm text-gray-400">Log notes, complete quizzes, and activate timers to mine platform credits.</p>
+        <div class="border-b border-gray-800 pb-4 mb-6">
+            <h1 class="text-2xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="space-y-6">
-                <div class="bg-cardBg/80 border border-cyberBlue/30 p-6 rounded-2xl text-center shadow-lg">
-                    <h3 class="font-orbitron text-xs text-cyberBlue tracking-widest mb-2">FOCUS TIME CYCLER</h3>
-                    
-                    <div class="flex justify-center items-center gap-4 my-2 text-gray-400 font-orbitron text-sm">
-                        <button onclick="adjustTimer(-300)" class="w-8 h-8 rounded bg-black/40 border border-white/10 hover:border-cyberBlue text-white font-bold flex items-center justify-center">-5m</button>
-                        <span class="text-[10px] uppercase tracking-wider text-gray-500">Fluctuate</span>
-                        <button onclick="adjustTimer(300)" class="w-8 h-8 rounded bg-black/40 border border-white/10 hover:border-cyberBlue text-white font-bold flex items-center justify-center">+5m</button>
+                <div class="bg-cardBg/80 border border-cyberBlue/30 p-5 rounded-2xl text-center shadow-lg">
+                    <h3 class="font-orbitron text-[11px] text-cyberBlue tracking-widest mb-2">FOCUS CLOCK ENGINE</h3>
+                    <div class="flex justify-center items-center gap-3 my-1 text-white font-orbitron text-xs">
+                        <button onclick="adjustTimer(-300)" class="px-2 py-1 rounded bg-black border border-white/15 hover:border-cyberBlue font-bold">-5m</button>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest">Fluctuate</span>
+                        <button onclick="adjustTimer(300)" class="px-2 py-1 rounded bg-black border border-white/15 hover:border-cyberBlue font-bold">+5m</button>
                     </div>
-
-                    <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-4 tracking-wider">25:00</div>
-                    <p class="text-[10px] text-gray-500 font-mono mb-4">REWARD: +50 TOKENS</p>
-                    <div class="flex justify-center gap-4">
+                    <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-3 tracking-wider">25:00</div>
+                    <div class="flex justify-center gap-3">
                         <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START</button>
                         <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded">RESET</button>
                     </div>
                 </div>
 
-                <div class="bg-cardBg/80 border border-cyberPurple/40 p-6 rounded-2xl shadow-lg">
-                    <h3 class="font-orbitron text-xs text-purple-400 tracking-widest mb-3"><i class="fas fa-brain text-yellow-400 mr-1"></i> COGNITIVE QUIZ CORE</h3>
-                    <div id="quiz-box">
-                        <p id="quiz-question" class="text-xs text-white mb-4 font-medium leading-relaxed">Loading questions...</p>
-                        <div id="quiz-options" class="space-y-2">
-                            </div>
-                    </div>
+                <div class="bg-cardBg/80 border border-cyberPurple/40 p-5 rounded-2xl shadow-lg">
+                    <h3 class="font-orbitron text-[11px] text-purple-400 tracking-widest mb-3"><i class="fas fa-brain text-yellow-400 mr-1"></i> COGNITIVE QUIZ CORE</h3>
+                    <p id="quiz-question" class="text-xs text-white mb-3 font-medium leading-relaxed">Loading standard query indexes...</p>
+                    <div id="quiz-options" class="space-y-2"></div>
                 </div>
             </div>
 
-            <div class="lg:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-5 rounded-2xl flex flex-col justify-between min-h-[300px]">
                 <div>
-                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY NOTES (+10 TOKENS)</h3>
-                    <div id="study-notes-container" class="space-y-3 font-mono text-xs text-gray-300 max-h-72 overflow-y-auto pr-2">
-                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[CyberWizard44]</span> Setup initial mainframe arrays.</div>
-                        <div class="bg-black/30 p-3 rounded-lg border border-white/5"><span class="text-cyberBlue">[ByteBard]</span> Left global configuration values live.</div>
+                    <h3 class="font-orbitron text-[11px] text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY GRID (+10 TOKENS)</h3>
+                    <div id="study-notes-container" class="space-y-2 font-mono text-xs text-gray-300 max-h-56 overflow-y-auto pr-1">
+                        <div class="bg-black/40 p-2.5 rounded border border-white/5"><span class="text-cyberBlue">[CyberWizard44]</span> Setup initial mainframe arrays.</div>
+                        <div class="bg-black/40 p-2.5 rounded border border-white/5"><span class="text-cyberBlue">[ByteBard]</span> Left global configuration values live.</div>
                     </div>
                 </div>
-                <div class="mt-6 flex gap-2">
-                    <input id="note-input" type="text" placeholder="Type a note onto the grid data display..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2.5 text-sm text-white focus:border-cyberBlue outline-none">
-                    <button onclick="addNewNote()" class="px-5 py-2.5 bg-gradient-to-r from-cyberBlue to-cyberPurple text-white font-orbitron font-bold text-xs rounded shadow-glowBlue">POST</button>
+                <div class="mt-4 flex gap-2">
+                    <input id="note-input" type="text" placeholder="Compile text into logs..." class="flex-1 bg-black/60 border border-white/10 rounded px-3 py-2 text-xs text-white focus:border-cyberBlue outline-none">
+                    <button onclick="addNewNote()" class="px-4 py-2 bg-gradient-to-r from-cyberBlue to-cyberPurple text-white font-orbitron font-bold text-xs rounded shadow-glowBlue">POST</button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <main id="page-fandom" class="max-w-6xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+    <div id="page-fandom" class="w-full max-w-5xl mx-auto px-4 py-8 hidden flex-grow">
         <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberPink hover:underline flex items-center gap-2">
             <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
         </button>
         
-        <div class="border-b border-gray-800 pb-4 mb-8">
-            <h1 class="text-3xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
-            <p class="text-sm text-gray-400">Track user score positions and vote in trending community data streams.</p>
+        <div class="border-b border-gray-800 pb-4 mb-6">
+            <h1 class="text-2xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="bg-cardBg/80 border border-cyberPink/30 p-6 rounded-2xl shadow-lg h-fit">
-                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4"><i class="fas fa-trophy mr-1 text-yellow-400"></i> NETWORK LEADERBOARD</h3>
-                <div class="space-y-3 font-orbitron text-xs">
-                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded border border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardBg/80 border border-cyberPink/30 p-5 rounded-2xl shadow-lg">
+                <h3 class="font-orbitron text-[11px] text-cyberPink tracking-widest mb-4"><i class="fas fa-trophy mr-1 text-yellow-400"></i> CORE LEADERBOARD</h3>
+                <div class="space-y-2 font-orbitron text-xs">
+                    <div class="flex justify-between items-center bg-white/5 p-2 rounded">
                         <span class="text-yellow-400 font-bold">1. ShadowFlame</span>
-                        <span class="text-gray-400 font-mono">2,450 NXS</span>
+                        <span class="text-gray-400 font-mono text-[11px]">2,450 NXS</span>
                     </div>
-                    <div class="flex justify-between items-center bg-white/5 p-2.5 rounded border border-white/5">
+                    <div class="flex justify-between items-center bg-white/5 p-2 rounded">
                         <span class="text-gray-300 font-bold">2. ByteBard</span>
-                        <span class="text-gray-400 font-mono">1,890 NXS</span>
+                        <span class="text-gray-400 font-mono text-[11px]">1,890 NXS</span>
                     </div>
-                    <div class="flex justify-between items-center bg-gradient-to-r from-cyberPurple/40 to-cyberPink/40 p-2.5 rounded border border-cyberPink/50 shadow-glowPink">
-                        <span class="text-white font-black animate-pulse">3. Scarlet.Owner (You)</span>
+                    <div class="flex justify-between items-center bg-gradient-to-r from-cyberPurple/30 to-cyberPink/30 p-2 rounded border border-cyberPink/40 shadow-glowPink">
+                        <span class="text-white font-bold animate-pulse">3. Scarlet.Owner (You)</span>
                         <span id="leaderboard-user-tokens" class="text-cyberPink font-mono font-bold">0 NXS</span>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl h-fit">
-                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
-                <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
-                
+            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-5 rounded-2xl">
+                <h3 class="font-orbitron text-[11px] text-cyberPink tracking-widest mb-3">GRID OPINION POLL</h3>
+                <p class="text-xs text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
                 <div class="space-y-4 text-xs font-orbitron">
                     <div>
                         <div class="flex justify-between mb-1">
-                            <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
+                            <button onclick="castVote('anime')" class="hover:text-cyberPink font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
                             <span id="vote-anime-pct">42%</span>
                         </div>
-                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                        <div class="w-full bg-black h-1.5 rounded-full overflow-hidden border border-white/5">
                             <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
                         </div>
                     </div>
                     <div>
                         <div class="flex justify-between mb-1">
-                            <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
+                            <button onclick="castVote('gaming')" class="hover:text-cyberPink font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
                             <span id="vote-gaming-pct">58%</span>
                         </div>
-                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                        <div class="w-full bg-black h-1.5 rounded-full overflow-hidden border border-white/5">
                             <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <footer class="border-t border-gray-800 bg-darkBg/50 py-6 font-orbitron text-xs text-center space-y-4 z-10">
-        <div class="text-cyberPurple tracking-widest font-bold uppercase">Nexus Ecosystem Active Architecture</div>
-        <div class="text-gray-600 font-sans text-[11px]">&copy; 2026 NEXUS. Systems online.</div>
+    <footer class="border-t border-gray-900 bg-darkBg/80 py-4 font-orbitron text-[10px] text-center w-full mt-auto">
+        <div class="text-gray-600">&copy; 2026 NEXUS. Mainframe Active.</div>
     </footer>
 
     <script>
-        // WALLET MANAGEMENT SYSTEM
         let tokens = parseInt(localStorage.getItem('nexus_tokens')) || 0;
+        let timerSeconds = 1500; 
+        let timerInterval = null;
 
         function updateTokenDisplays() {
             document.getElementById('global-tokens').innerText = tokens;
@@ -219,7 +202,6 @@
             localStorage.setItem('nexus_tokens', tokens);
         }
 
-        // VIEWPORT PAGE CONTROLLER
         function showPage(pageId) {
             document.getElementById('page-mainframe').style.display = (pageId === 'mainframe') ? 'block' : 'none';
             document.getElementById('page-study').style.display = (pageId === 'study') ? 'block' : 'none';
@@ -227,7 +209,6 @@
             window.scrollTo(0,0);
         }
 
-        // CONSOLIDATED NOTES GENERATOR
         function addNewNote() {
             const inputField = document.getElementById('note-input');
             const noteText = inputField.value.trim();
@@ -235,18 +216,14 @@
 
             const container = document.getElementById('study-notes-container');
             const newLog = document.createElement('div');
-            newLog.className = "bg-gradient-to-r from-cyberBlue/10 to-transparent p-3 rounded-lg border border-cyberBlue/20 text-white flex justify-between items-center animate-fade-in";
-            newLog.innerHTML = `<span><span class="text-cyberBlue font-bold">[Scarlet.Owner]</span> ${noteText}</span> <span class="text-[9px] text-yellow-400 font-orbitron font-bold">+10 TOKENS</span>`;
+            newLog.className = "bg-gradient-to-r from-cyberBlue/10 to-transparent p-2.5 rounded border border-cyberBlue/10 text-white flex justify-between items-center";
+            newLog.innerHTML = `<span><span class="text-cyberBlue font-bold">[Scarlet.Owner]</span> ${noteText}</span> <span class="text-[9px] text-yellow-400 font-bold">+10 NXS</span>`;
             
             container.prepend(newLog);
             inputField.value = '';
             tokens += 10;
             updateTokenDisplays();
         }
-
-        // FOCUS CYCLE TIMING CORE
-        let timerSeconds = 1500; 
-        let timerInterval = null;
 
         function updateTimerDisplay() {
             let mins = Math.floor(timerSeconds / 60);
@@ -279,7 +256,7 @@
                         timerInterval = null;
                         tokens += 50;
                         updateTokenDisplays();
-                        alert("Focus cycle sequence complete! +50 Tokens mined.");
+                        alert("Focus sequence complete! +50 tokens decrypted.");
                         resetTimer();
                     }
                 }, 1000);
@@ -295,12 +272,11 @@
             document.getElementById('btn-timer').innerText = "START";
         }
 
-        // QUIZ TERMINAL CORE LOGIC MATRIX
+        // QUIZ DATA ARRAY
         const quizData = [
-            { question: "What language builds the structural backbone of all web pages?", choices: ["Python", "HTML", "C++", "Java"], correct: 1 },
-            { question: "Which styling framework powers our Nexus user interface designs?", choices: ["Bootstrap", "Sass", "Tailwind CSS", "Vanilla CSS"], correct: 2 },
-            { question: "What does the 'M' in HTML represent?", choices: ["Machine", "Matrix", "Mainframe", "Markup"], correct: 3 },
-            { question: "Which symbol targets a clean target element ID inside CSS styling?", choices: [". (dot)", "# (hashtag)", "$ (dollar)", "* (star)"], correct: 1 }
+            { question: "What language builds the structural backbone of web pages?", choices: ["Python", "HTML", "C++", "Java"], correct: 1 },
+            { question: "Which styling engine gives Nexus its visuals?", choices: ["Bootstrap", "Sass", "Tailwind CSS", "Vanilla CSS"], correct: 2 },
+            { question: "What does the 'M' in HTML stand for?", choices: ["Machine", "Matrix", "Mainframe", "Markup"], correct: 3 }
         ];
         let currentQuizIndex = 0;
 
@@ -315,7 +291,7 @@
 
             item.choices.forEach((choice, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "w-full text-left bg-black/40 border border-white/5 hover:border-purple-500 rounded px-3 py-2 text-xs text-gray-300 hover:text-white transition-all";
+                btn.className = "w-full text-left bg-black/40 border border-white/5 hover:border-purple-500 rounded px-3 py-1.5 text-xs text-gray-300 hover:text-white transition-all";
                 btn.innerText = `${idx + 1}. ${choice}`;
                 btn.onclick = () => checkQuizAnswer(idx);
                 oBox.appendChild(btn);
@@ -327,15 +303,14 @@
             if (selectedIdx === item.correct) {
                 tokens += 100;
                 updateTokenDisplays();
-                alert("CORRECT DATA ACCESS DECISION! +100 Tokens verified.");
+                alert("CORRECT DECISION! +100 tokens added.");
             } else {
-                alert("DATAFRAME MISMATCH. Sequence paths dropped.");
+                alert("MISMATCH SEQUENCE. Try another terminal path.");
             }
             currentQuizIndex = (currentQuizIndex + 1) % quizData.length;
             loadQuizQuestion();
         }
 
-        // COMMUNITY VOTING DECK ENGINE
         let animeVotes = 42;
         let gamingVotes = 58;
         function castVote(choice) {
@@ -350,7 +325,6 @@
             document.getElementById('vote-gaming-bar').style.width = gPct + "%";
         }
 
-        // INITIALIZE RUNTIME INTERFACE MODULES ON LOAD
         window.onload = function() {
             updateTokenDisplays();
             loadQuizQuestion();
