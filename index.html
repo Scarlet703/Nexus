@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus - Get Community</title>
+    <title>Nexus - Mainframe Hubs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap">
@@ -48,17 +48,12 @@
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative">
 
     <header class="border-b border-gray-800 bg-darkBg/80 backdrop-blur-md sticky top-0 z-40 px-4 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="showPage('mainframe')">
             <div class="w-8 h-8 border-2 border-cyberBlue rotate-45 flex items-center justify-center shadow-glowBlue">
                 <span class="font-orbitron font-bold text-sm text-white -rotate-45">N</span>
             </div>
             <span class="font-orbitron font-black tracking-widest text-xl text-white">NEXUS</span>
         </div>
-        <nav class="hidden md:flex space-x-8 font-orbitron text-xs tracking-wider text-gray-400">
-            <a href="#" class="text-cyberBlue transition-colors">EXPLORE</a>
-            <a href="#" class="hover:text-white transition-colors">COMMUNITIES</a>
-            <a href="#" class="hover:text-white transition-colors">DEVELOPERS</a>
-        </nav>
         
         <div class="flex space-x-4 font-orbitron text-sm">
             <button onclick="openPortal('login')" class="px-4 py-2 text-gray-400 hover:text-white transition-all">LOG IN</button>
@@ -66,7 +61,7 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-12 flex-grow z-10">
+    <main id="page-mainframe" class="max-w-7xl mx-auto px-4 py-12 flex-grow z-10 w-full block">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
             <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px split-divider opacity-40 transform -translate-x-1/2"></div>
             
@@ -76,7 +71,7 @@
                     <h2 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-blue">STUDY HUB</h2>
                     <p class="text-sm text-gray-400 mt-2">Collaborate on knowledge, master new skills, and build your future together.</p>
                 </div>
-                <button onclick="openPortal('signup')" class="w-full sm:w-auto px-6 py-3 border border-cyberBlue text-cyberBlue font-orbitron text-sm rounded hover:bg-cyberBlue/10 transition-all flex items-center justify-center space-x-2">
+                <button onclick="showPage('study')" class="w-full sm:w-auto px-6 py-3 bg-cyberBlue/10 border border-cyberBlue text-cyberBlue font-orbitron text-sm rounded hover:bg-cyberBlue/20 transition-all flex items-center justify-center space-x-2 shadow-glowBlue">
                     <span>ENTER STUDY HUB</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </button>
@@ -85,13 +80,13 @@
                     <h3 class="text-xs font-orbitron text-gray-400 tracking-wider flex items-center">
                         <span class="w-2 h-2 bg-cyberBlue rounded-full mr-2 animate-pulse"></span> TRENDING IN STUDY HUB
                     </h3>
-                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800 hover:border-cyberBlue/50 transition-all group">
+                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800">
                         <div class="flex items-start space-x-4">
                             <div class="p-3 bg-cyberBlue/10 rounded-lg text-cyberBlue"><i class="fas fa-brain text-xl"></i></div>
                             <div class="flex-1">
                                 <span class="text-[10px] font-orbitron text-cyberBlue uppercase tracking-wider">AI & ML</span>
-                                <h4 class="text-white font-semibold group-hover:text-cyberBlue transition-colors">Neural Networks Explained Simply</h4>
-                                <div class="flex space-x-4 text-xs text-gray-500 mt-2 font-inter">
+                                <h4 class="text-white font-semibold">Neural Networks Explained Simply</h4>
+                                <div class="flex space-x-4 text-xs text-gray-500 mt-2">
                                     <span><i class="far fa-user text-cyberBlue/70 mr-1"></i> ByteBard</span>
                                     <span><i class="far fa-eye mr-1"></i> 1.2K</span>
                                 </div>
@@ -107,7 +102,7 @@
                     <h2 class="text-4xl font-orbitron font-black text-white tracking-tight mt-1 glow-text-pink">FANDOM HUB</h2>
                     <p class="text-sm text-gray-400 mt-2">Dive into fandoms, share your passion, and vibe with your people.</p>
                 </div>
-                <button onclick="openPortal('signup')" class="w-full sm:w-auto px-6 py-3 border border-cyberPink text-cyberPink font-orbitron text-sm rounded hover:bg-cyberPink/10 transition-all flex items-center justify-center space-x-2">
+                <button onclick="showPage('fandom')" class="w-full sm:w-auto px-6 py-3 bg-cyberPink/10 border border-cyberPink text-cyberPink font-orbitron text-sm rounded hover:bg-cyberPink/20 transition-all flex items-center justify-center space-x-2 shadow-glowPink">
                     <span>ENTER FANDOM HUB</span>
                     <i class="fas fa-arrow-right text-xs"></i>
                 </button>
@@ -116,19 +111,108 @@
                     <h3 class="text-xs font-orbitron text-gray-400 tracking-wider flex items-center">
                         <span class="w-2 h-2 bg-cyberPink rounded-full mr-2 animate-pulse"></span> TRENDING IN FANDOM HUB
                     </h3>
-                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800 hover:border-cyberPink/50 transition-all group">
+                    <div class="bg-cardBg/50 p-4 rounded-xl border border-gray-800">
                         <div class="flex items-start space-x-4">
                             <div class="p-3 bg-cyberPink/10 rounded-lg text-cyberPink"><i class="fas fa-crosshairs text-xl"></i></div>
                             <div class="flex-1">
                                 <span class="text-[10px] font-orbitron text-cyberPink uppercase tracking-wider">Anime</span>
-                                <h4 class="text-white font-semibold group-hover:text-cyberPink transition-colors">Demon Slayer Season 4 Hype!</h4>
-                                <div class="flex space-x-4 text-xs text-gray-500 mt-2 font-inter">
+                                <h4 class="text-white font-semibold">Demon Slayer Season 4 Hype!</h4>
+                                <div class="flex space-x-4 text-xs text-gray-500 mt-2">
                                     <span><i class="far fa-user text-cyberPink/70 mr-1"></i> ShadowFlame</span>
                                     <span><i class="far fa-eye mr-1"></i> 2.3K</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-study" class="max-w-5xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberBlue hover:underline flex items-center gap-2">
+            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
+        </button>
+        
+        <div class="border-b border-gray-800 pb-4 mb-8">
+            <h1 class="text-3xl font-orbitron font-black text-white glow-text-blue"><i class="fas fa-graduation-cap mr-2"></i>STUDY TERMINAL</h1>
+            <p class="text-sm text-gray-400">Lock in, stream notes, and track your core learning cycles.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardBg/80 border border-cyberBlue/30 p-6 rounded-2xl text-center shadow-lg">
+                <h3 class="font-orbitron text-xs text-cyberBlue tracking-widest mb-4">FOCUS TIME CYCLER</h3>
+                <div id="timer-display" class="font-orbitron font-bold text-4xl text-white my-4 tracking-wider">25:00</div>
+                <div class="flex justify-center gap-4 mt-4">
+                    <button id="btn-timer" onclick="toggleTimer()" class="px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue">START CYCLE</button>
+                    <button onclick="resetTimer()" class="px-4 py-2 bg-gray-800 text-gray-400 font-orbitron text-xs rounded hover:text-white">RESET</button>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="font-orbitron text-xs text-gray-400 tracking-wider mb-3">CONSOLIDATED STUDY LOGS</h3>
+                    <div class="space-y-3 font-mono text-xs text-gray-400 max-h-32 overflow-y-auto pr-2">
+                        <p class="border-b border-gray-800 pb-1"><span class="text-cyberBlue">[09:20]</span> CyberWizard44: Finished drafting basic setup arrays.</p>
+                        <p class="border-b border-gray-800 pb-1"><span class="text-cyberBlue">[11:45]</span> ByteBard: Left custom CSS configurations in repository deck.</p>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <input type="text" placeholder="Broadcast a learning update..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-cyberBlue outline-none">
+                    <button onclick="alert('Log injected into local database!')" class="px-4 py-2 bg-gray-800 text-white font-orbitron text-xs rounded hover:bg-gray-700">SEND</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="page-fandom" class="max-w-5xl mx-auto px-4 py-8 flex-grow z-10 w-full hidden">
+        <button onclick="showPage('mainframe')" class="mb-6 font-orbitron text-xs text-cyberPink hover:underline flex items-center gap-2">
+            <i class="fas fa-chevron-left"></i> BACK TO MAINFRAME
+        </button>
+        
+        <div class="border-b border-gray-800 pb-4 mb-8">
+            <h1 class="text-3xl font-orbitron font-black text-white glow-text-pink"><i class="fas fa-fire mr-2"></i>FANDOM CORE</h1>
+            <p class="text-sm text-gray-400">Sync with trending entertainment blocks, votes, and community lobbies.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardBg/80 border border-cyberPink/30 p-6 rounded-2xl shadow-lg">
+                <h3 class="font-orbitron text-xs text-cyberPink tracking-widest mb-4">GRID OPINION POLL</h3>
+                <p class="text-sm text-white mb-4 font-semibold">Best Cyber Deck Category?</p>
+                
+                <div class="space-y-4 text-xs font-orbitron">
+                    <div>
+                        <div class="flex justify-between mb-1 text-gray-400">
+                            <button onclick="castVote('anime')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Anime Channels</button>
+                            <span id="vote-anime-pct">42%</span>
+                        </div>
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                            <div id="vote-anime-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 42%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1 text-gray-400">
+                            <button onclick="castVote('gaming')" class="hover:text-cyberPink text-left font-bold text-white"><i class="far fa-circle mr-1 text-cyberPink"></i> Retro Gaming</button>
+                            <span id="vote-gaming-pct">58%</span>
+                        </div>
+                        <div class="w-full bg-black h-2 rounded-full overflow-hidden border border-white/5">
+                            <div id="vote-gaming-bar" class="bg-gradient-to-r from-cyberPurple to-cyberPink h-full transition-all duration-500" style="width: 58%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-cardBg/50 border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <h3 class="font-orbitron text-xs text-cyberPink tracking-wider mb-3">GLOBAL VIBE FEED</h3>
+                    <div class="space-y-3 text-xs max-h-32 overflow-y-auto pr-2">
+                        <p><span class="font-bold text-cyberPink">VibraniumPhx:</span> That Demon Slayer drop sequence was completely wild.</p>
+                        <p><span class="font-bold text-purple-400">ShadowFlame:</span> Agreed, studio animation budgets are legendary this year.</p>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <input type="text" placeholder="Type into lobby feed..." class="flex-1 bg-black/50 border border-white/10 rounded px-3 py-2 text-sm text-white focus:border-cyberPink outline-none">
+                    <button onclick="alert('Message echoed to the network!')" class="px-4 py-2 bg-gradient-to-r from-cyberPurple to-cyberPink text-white font-orbitron text-xs rounded">VIBE</button>
                 </div>
             </div>
         </div>
@@ -190,15 +274,22 @@
     </footer>
 
     <script>
+        // PAGE MANAGER NAVIGATOR
+        function showPage(pageId) {
+            document.getElementById('page-mainframe').style.display = (pageId === 'mainframe') ? 'block' : 'none';
+            document.getElementById('page-study').style.display = (pageId === 'study') ? 'block' : 'none';
+            document.getElementById('page-fandom').style.display = (pageId === 'fandom') ? 'block' : 'none';
+            window.scrollTo(0,0);
+        }
+
+        // PORTAL (MODAL) HANDLERS
         function openPortal(mode) {
             document.getElementById('auth-portal').classList.remove('hidden');
             switchForm(mode);
         }
-
         function closePortal() {
             document.getElementById('auth-portal').classList.add('hidden');
         }
-
         function switchForm(mode) {
             const tabLogin = document.getElementById('tab-login');
             const tabSignup = document.getElementById('tab-signup');
@@ -217,11 +308,62 @@
                 formLogin.style.display = "none";
             }
         }
-
         function submitGateway(event, statusText) {
             event.preventDefault();
             alert(statusText);
             closePortal();
+        }
+
+        // POMODORO TIMER WORKER SYSTEM
+        let timerSeconds = 1500; 
+        let timerInterval = null;
+        function toggleTimer() {
+            const btn = document.getElementById('btn-timer');
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                btn.innerText = "START CYCLE";
+            } else {
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        let mins = Math.floor(timerSeconds / 60);
+                        let secs = timerSeconds % 60;
+                        document.getElementById('timer-display').innerText = 
+                            (mins < 10 ? '0' : '') + mins + ":" + (secs < 10 ? '0' : '') + secs;
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        alert("Focus cycle sequence complete!");
+                        resetTimer();
+                    }
+                }, 1000);
+                btn.innerText = "PAUSE CORE";
+            }
+        }
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 1500;
+            document.getElementById('timer-display').innerText = "25:00";
+            document.getElementById('btn-timer').innerText = "START CYCLE";
+            document.getElementById('btn-timer').className = "px-4 py-2 bg-cyberBlue text-black font-bold font-orbitron text-xs rounded shadow-glowBlue";
+        }
+
+        // INTERACTIVE VOTING SYSTEM ENGINE
+        let animeVotes = 42;
+        let gamingVotes = 58;
+        function castVote(choice) {
+            if(choice === 'anime') animeVotes++;
+            else gamingVotes++;
+            let total = animeVotes + gamingVotes;
+            let aPct = Math.round((animeVotes / total) * 100);
+            let gPct = Math.round((gamingVotes / total) * 100);
+            
+            document.getElementById('vote-anime-pct').innerText = aPct + "%";
+            document.getElementById('vote-gaming-pct').innerText = gPct + "%";
+            document.getElementById('vote-anime-bar').style.width = aPct + "%";
+            document.getElementById('vote-gaming-bar').style.width = gPct + "%";
         }
     </script>
 </body>
